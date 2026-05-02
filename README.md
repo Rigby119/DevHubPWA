@@ -1,16 +1,28 @@
-# React + Vite
+# Dev.Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Panel personal para desarrolladores. Centraliza proyectos, links de trabajo, tareas, snippets de código y comandos útiles en un solo lugar.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React + Vite
+- Tailwind CSS v4
+- react-icons
+- Fontsource (Syne + JetBrains Mono)
+- vite-plugin-pwa
 
-## React Compiler
+## Estructura
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Atomic Design con separación de lógica de negocio (`features/`) y componentes de vista (`components/`). Persistencia local via `localStorage`.
 
-## Expanding the ESLint configuration
+## Uso
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Deploy en Netlify — `npm run build` genera el `dist/` listo para producir.
+
+---
+
+Hecho por [rigby119](https://github.com/Rigby119), diseñado con [Claude](https://claude.ai) Sonnet 4.5
