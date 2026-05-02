@@ -7,6 +7,7 @@ import Button from '@components/atoms/Button'
 import Input from '@components/atoms/Input'
 import Select from '@components/atoms/Select'
 import EmptyState from '@components/atoms/EmptyState'
+import { PROJECT_ICONS } from '@components/atoms/iconMaps'
 import { useProjects } from '@features/projects/useProjects'
 import { useModal } from '@hooks/useModal'
 
@@ -29,12 +30,12 @@ export default function ProjectsPanel({ onToast }) {
         addProject({
             name,
             desc: descRef.current.value.trim(),
-            icon: iconRef.current.value.trim() || '📁',
+            icon: iconRef.current.value,
             repo: repoRef.current.value.trim(),
             demo: demoRef.current.value.trim(),
             tag: tagRef.current.value,
         })
-            ;[nameRef, descRef, iconRef, repoRef, demoRef].forEach(r => { r.current.value = '' })
+            ;[nameRef, descRef, repoRef, demoRef].forEach(r => { r.current.value = '' })
         close()
         onToast('Proyecto guardado')
     }
@@ -69,8 +70,12 @@ export default function ProjectsPanel({ onToast }) {
                     <FormField label="Descripción">
                         <Input ref={descRef} placeholder="Breve descripción" />
                     </FormField>
-                    <FormField label="Emoji / Icono">
-                        <Input ref={iconRef} placeholder="🚀" maxLength={2} />
+                    <FormField label="Icono">
+                        <Select ref={iconRef} defaultValue="folder">
+                            {PROJECT_ICONS.map(({ value, label, Icon }) => (
+                                <option key={value} value={value}>{label}</option>
+                            ))}
+                        </Select>
                     </FormField>
                     <FormField label="URL Repositorio">
                         <Input ref={repoRef} placeholder="https://github.com/..." />

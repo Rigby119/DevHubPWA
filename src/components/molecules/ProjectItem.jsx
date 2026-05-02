@@ -1,5 +1,6 @@
 import Tag from '@components/atoms/Tag'
 import Button from '@components/atoms/Button'
+import { getProjectIcon } from '@components/atoms/iconMaps'
 
 const tagVariants = {
     dev: 'accent',
@@ -9,10 +10,12 @@ const tagVariants = {
 }
 
 export default function ProjectItem({ project, onRemove }) {
+    const Icon = getProjectIcon(project.icon)
+
     return (
         <div className="group flex items-center gap-3 px-3 py-2.5 bg-bg3 border border-border rounded-md hover:border-border2 hover:bg-bg4 transition-all duration-150">
-            <div className="w-7 h-7 rounded-md bg-accent/12 flex items-center justify-center text-[14px] flex-shrink-0">
-                {project.icon || '📁'}
+            <div className="w-7 h-7 rounded-md bg-accent/12 flex items-center justify-center flex-shrink-0 text-accent2">
+                <Icon size={15} strokeWidth={1.75} />
             </div>
 
             <div className="flex-1 min-w-0">

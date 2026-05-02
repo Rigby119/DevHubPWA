@@ -7,6 +7,7 @@ import Button from '@components/atoms/Button'
 import Input from '@components/atoms/Input'
 import Select from '@components/atoms/Select'
 import EmptyState from '@components/atoms/EmptyState'
+import { LINK_ICONS } from '@components/atoms/iconMaps'
 import { useLinks } from '@features/links/useLinks'
 import { useModal } from '@hooks/useModal'
 
@@ -28,10 +29,10 @@ export default function WorkLinksPanel({ onToast }) {
         addLink({
             name,
             url,
-            icon: iconRef.current.value.trim() || '🔗',
+            icon: iconRef.current.value,
             cat: catRef.current.value,
         })
-            ;[nameRef, urlRef, iconRef].forEach(r => { r.current.value = '' })
+            ;[nameRef, urlRef].forEach(r => { r.current.value = '' })
         close()
         onToast('Link guardado')
     }
@@ -66,8 +67,12 @@ export default function WorkLinksPanel({ onToast }) {
                     <FormField label="URL">
                         <Input ref={urlRef} placeholder="https://..." />
                     </FormField>
-                    <FormField label="Emoji / Icono">
-                        <Input ref={iconRef} placeholder="💼" maxLength={2} />
+                    <FormField label="Icono">
+                        <Select ref={iconRef} defaultValue="link">
+                            {LINK_ICONS.map(({ value, label }) => (
+                                <option key={value} value={value}>{label}</option>
+                            ))}
+                        </Select>
                     </FormField>
                     <FormField label="Categoría">
                         <Select ref={catRef} defaultValue="work">

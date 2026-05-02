@@ -1,14 +1,17 @@
 import Button from '@components/atoms/Button'
+import { getLinkIcon } from '@components/atoms/iconMaps'
 
 export default function LinkItem({ link, onRemove }) {
+    const Icon = getLinkIcon(link.icon)
+
     return (
         <div
             className="group flex items-center gap-3 px-3 py-2.5 bg-bg3 border border-border rounded-md hover:border-border2 hover:bg-bg4 transition-all duration-150 cursor-pointer"
             onClick={() => window.open(link.url, '_blank')}
         >
-            <span className="text-[15px] w-6 text-center flex-shrink-0">
-                {link.icon || '🔗'}
-            </span>
+            <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 text-amber">
+                <Icon size={15} strokeWidth={1.75} />
+            </div>
 
             <div className="flex-1 min-w-0">
                 <p className="text-[13px] font-medium text-text leading-snug">
