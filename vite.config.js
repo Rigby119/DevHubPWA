@@ -10,20 +10,17 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico'],
       manifest: {
-        name: 'dev.hub',
-        short_name: "devhub",
+        name: 'Dev.Hub',
+        short_name: "DevHub",
         description: 'Espacio de trabajo personal',
         theme_color: '#0a0a0f',
         background_color: '#0a0a0f',
         display: 'standalone',
         icons: [
-          {
-            src: 'favicon.ico',
-            sizes: '64x64',
-            type: 'image/x-icon'
-          }
+          { src: 'icon-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'icon-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ]
       }
     })
