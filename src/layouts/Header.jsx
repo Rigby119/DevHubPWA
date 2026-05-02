@@ -22,11 +22,11 @@ export default function Header() {
     return (
         <header className="flex items-end justify-between mb-10 pb-6 border-b border-border">
             <div className="flex flex-col gap-1">
-                <h1 className="font-sans text-[22px] font-extrabold tracking-tight text-text leading-none">
-                    dev<span className="text-accent2">.</span>hub
+                <h1 className="font-sans text-[22px] font-bold tracking-tight text-text leading-none">
+                    Dev<span className="text-accent2">.</span>Hub
                 </h1>
                 <p className="text-[11px] text-muted tracking-widest uppercase font-mono leading-relaxed">
-                    tu espacio de trabajo personal
+                    Tu espacio de trabajo personal
                 </p>
             </div>
 
