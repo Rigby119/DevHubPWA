@@ -15,7 +15,7 @@ export default function ProjectItem({ project, onRemove }) {
     return (
         <div className="group flex items-center gap-3 px-3 py-2.5 bg-bg3 border border-border rounded-md hover:border-border2 hover:bg-bg4 transition-all duration-150">
             <div className="w-7 h-7 rounded-md bg-accent/12 flex items-center justify-center flex-shrink-0 text-accent2">
-                <Icon size={15} strokeWidth={1.75} />
+                <Icon size={15} />
             </div>
 
             <div className="flex-1 min-w-0">

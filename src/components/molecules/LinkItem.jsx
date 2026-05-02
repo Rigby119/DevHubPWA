@@ -10,7 +10,7 @@ export default function LinkItem({ link, onRemove }) {
             onClick={() => window.open(link.url, '_blank')}
         >
             <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 text-amber">
-                <Icon size={15} strokeWidth={1.75} />
+                <Icon size={15} />
             </div>
 
             <div className="flex-1 min-w-0">
