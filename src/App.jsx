@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // Importar Router
 import Splash from "@components/atoms/Splash";
-import Dashboard from '@pages/Dashboard'
+import Dashboard from '@pages/Dashboard';
+import Zen from '@pages/Zen'; // Importar tu nueva página
 
 export default function App() {
     const [loading, setLoading] = useState(true);
@@ -8,31 +10,25 @@ export default function App() {
     useEffect(() => {
         const loadApp = async () => {
             await Promise.all([
-                // 🔹 Simula carga de datos (cámbialo por tu API real)
                 fetch("/api/data").catch(() => { }),
-
-                // 🔹 Tiempo mínimo para que el splash no parpadee
                 new Promise((resolve) => setTimeout(resolve, 1200))
             ]);
-
             setLoading(false);
         };
-
         loadApp();
     }, []);
 
     return (
-        <>
+        <BrowserRouter>
             <Splash loading={loading} />
 
-            <div
-                className={`
-                    transition-opacity duration-500
-                    ${loading ? "opacity-0" : "opacity-100"}
-                `}
-            >
-                <Dashboard />
+            <div className={`transition-opacity duration-500 ${loading ? "opacity-0" : "opacity-100"}`}>
+                <Routes>
+                    {/* Definición de rutas */}
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/zen" element={<Zen />} />
+                </Routes>
             </div>
-        </>
+        </BrowserRouter>
     );
 }
